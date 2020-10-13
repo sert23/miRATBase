@@ -1,0 +1,155 @@
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<title>miRATBase</title>
+
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- Stylesheets -->
+
+		<link rel="stylesheet" href="{% static "/css/bootstrap.min.css"  %}"/>
+		<link rel="stylesheet" href="{% static "/css/mirna_pathway_dictionary_custom.css"  %}" />
+		<link rel="stylesheet" href="{% static "/css/datatables.1.10.9.min.css"  %}" />
+		<link rel="stylesheet" href="{% static "/css/dataTables.buttons.1.1.2.min.css"  %}" />
+		<link rel="stylesheet" href="{% static "/css/jquery.dataTables.yadcf.css"  %}" />
+		<link rel="stylesheet" href="{% static "/css/jquery-ui.css"  %}" />
+		<link rel="stylesheet" href="{% static "/css/bootstrap.col-15.css"  %}" />
+
+
+
+
+    <style>
+        .center{
+            display: inline-block;
+        }
+
+        .option{
+            background: white;
+            border-radius: 10px;
+            border: 1px;
+            border-color: black;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .toolbar{
+            background-color: #f5f5f5;
+            margin: 0px;
+            padding-left: 10px;
+            padding-bottom: 0px;
+            padding-right: 10px;
+            padding-top: 10px;
+        }
+
+        .description{
+            height: 50px;
+        }
+    </style>
+
+		<!-- Scripts -->
+		<script src="{% static "/js/jquery-2.1.4.min.js"  %}"></script>
+		<script src="{% static "/js/jquery-ui.js"  %}"></script>
+{#		<script src="/js/jquery.redirect.min.js"></script>#}
+		<script src="{% static "/js/bootstrap.min.js"  %}"></script>
+		<script src="{% static "/js/bootstrap3-typeahead.min.js"  %}"></script>
+
+{#		<script src="/js/thirdParty/datatables.1.10.9.min.js"></script>#}
+{#		<script src="/js/thirdParty/jquery.dataTables.yadcf.js"></script>#}
+{#		<script src="/js/thirdParty/dataTables.colReorder.1.3.1.min.js"></script>#}
+{#		<script src="/js/thirdParty/dataTables.buttons.1.1.2.min.js"></script>#}
+{#		<script src="/js/thirdParty/buttons.flash.min.js"></script>#}
+{#		<script src="/js/thirdParty/jszip.min.js"></script>#}
+{#		<script src="/js/thirdParty/pdfmake.min.js"></script>#}
+{#		<script src="/js/thirdParty/vfs_fonts.js"></script>#}
+{#		<script src="/js/thirdParty/buttons.html5.min.js"></script>#}
+{#		<script src="/js/thirdParty/buttons.print.min.js"></script>#}
+{#		<script src="/js/thirdParty/buttons.colVis.min.js"></script>#}
+{#		<script src="/js/common.1.1.js"></script>#}
+	</head>
+<body>
+
+		<header>
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="/"></span> miRATBase </a>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="/">Home</a></li>
+                            <li><a href="download.html">Download</a></li>
+							<li> <a href="about.html">About</a></li>
+
+						</ul>
+
+					</div><!--/.nav-collapse -->
+				</div>
+			</nav>
+		</header>
+
+    <div class="container-fluid" id="main-container">
+				<div class="row">
+					<div class="col-sm-2 col-md-2 sidebar" style="vertical-align: bottom">
+
+
+						<ul class="nav nav-sidebar">
+							<h4 style="margin-left: 10px">Database</h4>
+							<li class="active"><a href="overview.html">Overview <span class="sr-only">(current)</span></a></li>
+							<li><a href="mirnas.html?organism=hsa">miRNAs</a></li>
+							<li><a href="pathways.html?organism=hsa">Pathways</a></li>
+							<!--<li th:class="${dictionary_heatmaps}"><a th:href="@{heatmap.html + '?organism=' + ${organism}}">Heat maps for pathways databases</a></li>-->
+
+                        </ul>
+
+						<footer class="footer">
+
+                            <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                            <hr />
+	<h4>Partners</h4>
+	<a href="http://www.uni-saarland.de">
+		<img class="logo" width="175" height="49" alt="Uni Saarland Logo" src="{% static "images/logo_uds_175_49_neu.png" %}" />
+	</a>
+	<a href="http://www.zbi.uni-saarland.de">
+		<img class="logo" width="203" height="49" alt="CBI Logo" src="{% static "images/logo-cbi.png" %}"/>
+	</a>
+	<ul style="list-style-type: none; margin-left: -40px; margin-top: 10px; width: 225px; text-align: left">
+		<li><a href="https://www.uni-saarland.de/en/legal-notice.html">Legal notice</a></li>
+		<li><a href="https://www.uni-saarland.de/en/privacy.html">Terms of Use</a></li>
+	</ul>
+</footer>
+
+                    </div>
+
+                    <div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
+
+						{% block content %}
+                        {%  endblock %}
+                </div>
+    </div>
+
+    </div>
+  {% block js %}
+
+    {% endblock %}
+</body>
+</html>
+
+

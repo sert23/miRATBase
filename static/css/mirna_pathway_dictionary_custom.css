@@ -1,0 +1,231 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+  background-color: #ffffff;
+  color: #1e3948;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 1.6;
+  padding-bottom: 100px;
+  padding-top: 70px;
+}
+
+.chart-wrapper {
+    position: relative;
+    padding-bottom: 70%;
+    width:100%;
+    margin-top: 10px;
+}
+
+.chart-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.filter {
+    border-radius: 3px;
+    height: 25px;
+    width: 100%;
+}
+
+.footer {
+    background-color: #f5f5f5;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+}
+
+.form-control{
+    /*height: 25px;*/
+}
+
+.green {
+    color: #00B233;
+}
+
+.red {
+    color: #8A0808;
+}
+
+.responsive {
+    height: auto;
+    width: auto;
+    margin: auto;
+    max-width: 100%;
+    padding: 5%;
+}
+
+.navbar{
+	background: #428bca;
+}
+
+.navbar .nav > li > a {
+	float: none;
+	text-decoration: none;
+	/*text-shadow: 0 -1px 0 rgba(0, 68, 127, 1.0);*/
+	color:  #fff;
+	cursor: pointer;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+	background-color:#428bca;
+	color:  #fff;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	background: rgba(20, 88, 147, 0.5);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+	color:  #fff;
+}
+
+.navbar .navbar-brand {
+	text-shadow: 0 -1px 0 #428bca;
+	color: #fff;
+}
+
+.navbar-right{
+    padding-right: 10px;
+}
+
+.sidebar {
+    display: none;
+}
+@media (min-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 51px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        background-color: #f5f5f5;
+        /*border-right: 1px solid #eee;*/
+    }
+}
+
+td{
+    min-width: 130px;
+    padding: 3px;
+}
+
+.nav-sidebar {
+    margin-right: -21px; /* 20px padding + 1px border */
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+.nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+    color: #fff;
+    background-color: #428bca;
+}
+
+.main {
+    padding: 20px;
+}
+@media (min-width: 768px) {
+    .main {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+}
+
+.organism-button{
+    padding: 0;
+    border: 0;
+    background: transparent;
+    outline: none !important;
+    box-shadow: none !important;
+    margin-left: 5px;
+    margin-top: 3px;
+}
+
+.organism-img{
+    vertical-align: middle;
+    border: 0;
+    border-radius: 50%;
+}
+
+.reduced-opacity{
+    opacity: 0.4;
+}
+
+.seed{
+    background-color:darkblue;
+    color:white;
+}
+
+.page-header {
+    margin: 0px 0 20px;
+}
+
+.placeholders {
+    margin-bottom: 30px;
+    text-align: center;
+}
+.placeholders h4 {
+    margin-bottom: 0;
+}
+.placeholder {
+    margin-bottom: 20px;
+}
+.placeholder img {
+    display: inline-block;
+}
+
+#global-search {
+    margin-top: 8px;
+    margin-right: 100px;
+}
+
+.mature{
+    background-color: darkred;
+    color:white;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.yadcf-filter-reset-button{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    height: 25px;
+    padding: 0 2px;
+    position: relative;
+    margin-left: -1px;
+    margin-top: -1px;
+}
+
+.yadcf-filter-reset-button.range-number-slider-reset-button{
+    visibility: hidden;
+}
+
+.yadcf-filter-range-number-slider{
+    max-width: 100px;
+}
+
+.yadcf-number-slider-filter-wrapper-inner{
+    max-width: 100px;
+}
+
+.yadcf-filter-wrapper{
+    max-width: 90px;
+    width: inherit;
+}
