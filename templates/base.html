@@ -20,7 +20,10 @@
 		<link rel="stylesheet" href="{% static "/css/jquery-ui.css"  %}" />
 		<link rel="stylesheet" href="{% static "/css/bootstrap.col-15.css"  %}" />
 
-
+        <script src="{% static "/js/jquery-2.1.4.min.js"  %}"></script>
+        <script src="{% static "/js/jquery-ui.js"  %}"></script>
+        <script src="{% static "/js/bootstrap.min.js"  %}"></script>
+        <script src="{% static "/js/datatables.1.10.9.min.js"  %}"></script>
 
 
     <style>
@@ -52,11 +55,11 @@
     </style>
 
 		<!-- Scripts -->
-		<script src="{% static "/js/jquery-2.1.4.min.js"  %}"></script>
-		<script src="{% static "/js/jquery-ui.js"  %}"></script>
+{#		<script src="{% static "/js/jquery-2.1.4.min.js"  %}"></script>#}
+{#		<script src="{% static "/js/jquery-ui.js"  %}"></script>#}
 {#		<script src="/js/jquery.redirect.min.js"></script>#}
-		<script src="{% static "/js/bootstrap.min.js"  %}"></script>
-		<script src="{% static "/js/bootstrap3-typeahead.min.js"  %}"></script>
+{#		<script src="{% static "/js/bootstrap.min.js"  %}"></script>#}
+{#		<script src="{% static "/js/bootstrap3-typeahead.min.js"  %}"></script>#}
 
 {#		<script src="/js/thirdParty/datatables.1.10.9.min.js"></script>#}
 {#		<script src="/js/thirdParty/jquery.dataTables.yadcf.js"></script>#}
@@ -87,9 +90,10 @@
 					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="/">Home</a></li>
-                            <li><a href="download.html">Download</a></li>
-							<li> <a href="about.html">About</a></li>
+							{% block tabs %}
+                            {% endblock %}
+
+
 
 						</ul>
 
@@ -105,23 +109,18 @@
 
 						<ul class="nav nav-sidebar">
 							<h4 style="margin-left: 10px">Database</h4>
-							<li class="active"><a href="overview.html">Overview <span class="sr-only">(current)</span></a></li>
-							<li><a href="mirnas.html?organism=hsa">miRNAs</a></li>
-							<li><a href="pathways.html?organism=hsa">Pathways</a></li>
+							<li ><a href="/">Search </a></li>
+							<li><a href="{% url 'all' %}?term=mirnas">miRNAs</a></li>
+							<li><a href="{% url 'all' %}?term=genes">Targets</a></li>
+							<li><a href="{% url 'all' %}?term=paths">Pathways</a></li>
 							<!--<li th:class="${dictionary_heatmaps}"><a th:href="@{heatmap.html + '?organism=' + ${organism}}">Heat maps for pathways databases</a></li>-->
 
                         </ul>
 
-						<footer class="footer">
-
+{#						<footer class="footer">#}
+                        <footer style="position:fixed; bottom: 0; width:inherit;">
                             <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
+
                             <hr />
 	<h4>Partners</h4>
 	<a href="http://www.uni-saarland.de">
@@ -137,6 +136,7 @@
 </footer>
 
                     </div>
+                </div>
 
                     <div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
 

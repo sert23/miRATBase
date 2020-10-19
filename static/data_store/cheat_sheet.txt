@@ -1,0 +1,17 @@
+from home.models import TargetGene
+from home.models import PathwayGene
+
+TargetGene.load_from_file("/Users/ernesto/PycharmProjects/miRATBase/static/data_store/HiTmiR_tables/HiTmiR_results_miR-129-3p.tsv","hsa-miR-129-2-3p")
+
+TargetGene.load_from_file("/Users/ernesto/PycharmProjects/miRATBase/static/data_store/HiTmiR_tables/HiTmiR_results_miR-34a-5p.tsv","hsa-miR-34a-5p")
+
+TargetGene.load_from_file("/Users/ernesto/PycharmProjects/miRATBase/static/data_store/HiTmiR_tables/HiTmiR_results_miR-7-5p.tsv","hsa-miR-7-5p")
+
+TargetGene.load_from_file("/Users/ernesto/PycharmProjects/miRATBase/static/data_store/HiTmiR_tables/HiTmiR_results_miR-129-5p.tsv","hsa-miR-129-5p")
+
+PathwayGene.load_from_file("/Users/ernesto/PycharmProjects/miRATBase/static/data_store/pathways_tables/TNF.txt")
+
+PathwayGene.load_from_file("/Users/ernesto/PycharmProjects/miRATBase/static/data_store/pathways_tables/TGFB.txt")
+
+PathwayGene.load_from_file("/Users/ernesto/PycharmProjects/miRATBase/static/data_store/pathways_tables/PD.txt")
+

@@ -1,5 +1,5 @@
 from django.conf.urls import include, url
-from home.views import index_view
+from home.views import index_view,download_view,about_view,search_view, ajax_mirna, ajax_mirtarbase, view_all
 """miRATBase URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -20,5 +20,12 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'download', download_view, name="Downloads"),
+    url(r'about', about_view, name="About"),
+    url(r'search', search_view, name="search"),
+    url(r'ajax_mirna', ajax_mirna, name="ajax_mirna"),
+    url(r'ajax_mirtar', ajax_mirtarbase, name="ajax_mirtar"),
+    url(r'all', view_all, name="all"),
     url(r'^/*$', index_view, name='home'),
+
 ]

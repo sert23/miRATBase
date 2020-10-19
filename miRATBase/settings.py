@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'home'
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,7 @@ STATICFILES_DIRS = [
 STATIC_URL = '/static/'
 
 MIRBASE_DICT = "/Users/ernesto/PycharmProjects/miRATBase/static/data_store/mirbase_aliases.json"
+
+MEDIA_ROOT = "/Users/ernesto/PycharmProjects/miRATBase/static/data_store/"
+
+MEDIA_URL = "/media/"

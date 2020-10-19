@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
+
+{% block tabs %}
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="download">Download</a></li>
+                <li> <a href="about">About</a></li>
+{% endblock %}
+
+
 {% block js %}
     <script>
 function autocomplete(inp, arr) {
@@ -29,13 +37,19 @@ function autocomplete(inp, arr) {
           b = document.createElement("DIV");
           /*make the matching letters bold:*/
           b.innerHTML = arr[i].substr(0, val.length);
+          {#console.log(val.length);#}
+          {#console.log(val);#}
+
           b.innerHTML += arr[i].substr(val.length);
           /*insert a input field that will hold the current array item's value:*/
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          b.innerHTML += '<input type="hidden" value="' + arr[i] + '">';
+          {#b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";#}
           /*execute a function when someone clicks on the item value (DIV element):*/
           b.addEventListener("click", function(e) {
               /*insert the value for the autocomplete text field:*/
+
               inp.value = this.getElementsByTagName("input")[0].value;
+              console.log(inp.value);
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
               closeAllLists();
@@ -108,6 +122,24 @@ var search_arr = {{ search_list|safe  }} ;
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("input_search"), search_arr);
 </script>
+
+    <script>
+
+    function searchDB() {
+
+        var search_url = "{% url 'search' %}?";
+
+        {#$("#input_search").val();#}
+
+        var pars = $("#input_search").serialize();
+        $("#search_link").attr("href", search_url.concat(pars));
+        $("#search_link").click();
+
+    }
+
+    </script>
+
+
 {% endblock %}
 
 
@@ -188,9 +220,13 @@ input[type=submit] {
         <p>Enter the name of a pathway, miRNA or miRNA target (gene):</p>
 {#        <input id="overview-search" type="text" class="form-control typeahead quick-search" />#}
           <div class="autocomplete" style="width:60%;">
-            <input id="input_search" type="text" >
+            <input id="input_search" name="search_term" type="text" >
             </div>
-            <input type="submit">
+
+                  <a href="javascript:void(0)" id="search_link" > <input  onclick="searchDB();" type="submit"></a>
+
+
+
                                         <br>
                 </div>
                                 </div>
@@ -201,22 +237,22 @@ input[type=submit] {
                             <div class="row placeholders toolbar">
         <div class="col-md-4 placeholder">
             <div class="option">
-                <a href="mirnas.html?organism=hsa"><img class="img-circle start-image img-responsive" width="200" height="200" src="{% static "images/mir210.png"  %}" /></a>
-                <h4><a href="mirnas.html?organism=hsa">miRNAs</a></h4>
+                <a href="{% url 'all' %}?term=mirnas"><img  width="200" height="200" src="{% static "images/miRNA.png"  %}" /></a>
+                <h4><a href="{% url 'all' %}?term=mirnas">miRNAs</a></h4>
                 <p class="justified description">Explore all miRNAs available in the database.</p>
             </div>
         </div>
             <div class="col-md-4 placeholder">
             <div class="option">
-                <a href="mirnas.html?organism=hsa"><img  height="200" alt="Generic placeholder image" src="{% static "images/target.jpg"  %}" /></a>
-                <h4><a href="mirnas.html?organism=hsa">Targets</a></h4>
+                <a href="{% url 'all' %}?term=genes"><img  width="200" height="200" alt="Generic placeholder image" src="{% static "images/target_stock.png"  %}" /></a>
+                <h4><a href="{% url 'all' %}?term=genes">Targets</a></h4>
                 <p class="justified description">Explore all miRNAs targets available in the database.</p>
             </div>
         </div>
               <div class="col-md-4 placeholder">
             <div class="option">
-                <a href="mirnas.html?organism=hsa"><img class="img-circle start-image img-responsive" width="400" height="400" alt="Generic placeholder image" src="{% static "images/gene_network.png"  %}" /></a>
-                <h4><a href="mirnas.html?organism=hsa">Pathways</a></h4>
+                <a href="{% url 'all' %}?term=paths"><img  width="200" height="200" alt="Generic placeholder image" src="{% static "images/pathway.png"  %}" /></a>
+                <h4><a href="{% url 'all' %}?term=paths">Pathways</a></h4>
                 <p class="justified description">Explore all target pathways available in the database.</p>
             </div>
         </div>
